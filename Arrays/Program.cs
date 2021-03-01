@@ -300,12 +300,120 @@ namespace Arrays
 
         static void Task9()
         {
-            Console.WriteLine("dfgd");
+            Console.WriteLine("Введите размер массива:");
+
+            int arraySize;
+            arraySize = Convert.ToInt32(Console.ReadLine());
+            Random random = new Random();
+            int[] array = new int[arraySize];
+
+            Console.WriteLine("Массив содержит числа: ");
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = random.Next(0, 100);
+                Console.Write($"{array[i]} ");
+            }
+
+            int tmp;
+            //bool changes = true;
+            
+            //for (int i = 0; i < array.Length - 1; i++)
+            //{
+
+                
+            //    if (array[i] > array[i+1])
+            //    {
+            //        tmp = array[i + 1];
+            //        array[i + 1] = array[i];
+            //        array[i] = tmp;
+            //        changes = true;
+            //    }
+
+            //    if (i == array.Length - 2)
+            //    {
+            //        if (changes == false)
+            //        {
+            //            break;
+            //        }
+            //        else
+            //        {
+            //            changes = false;
+            //            i = -1;
+            //        }
+            //    }
+                
+            //}
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                for(int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[i] > array [j])
+                    {
+                        tmp = array[j];
+                        array[j] = array[i];
+                        array[i] = tmp;
+                    }
+                }
+            }
+
+            Console.WriteLine($"\nОтсортированный массив:");
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write($"{array[i]} ");
+            }
         }
 
         static void Task10()
         {
-            Console.WriteLine("dfgd");
+            Console.WriteLine("Введите размер массива:");
+
+            int arraySize;
+            arraySize = Convert.ToInt32(Console.ReadLine());
+            Random random = new Random();
+            int[] array = new int[arraySize];
+
+            Console.WriteLine("Массив содержит числа: ");
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = random.Next(0, 100);
+                Console.Write($"{array[i]} ");
+            }
+
+            
+            int maxIndex;
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                int tmp;
+                maxIndex = i;
+                tmp = array[i];
+                for (int j = i+1; j < array.Length; j++)
+                {
+                    
+                    if (tmp < array[j])
+                    {
+                        tmp = array[j];
+                        maxIndex = j;
+                    }
+
+                }
+                if (array[maxIndex] > array[i])
+                {
+                    tmp = array[maxIndex];
+                    array[maxIndex] = array[i];
+                    array[i] = tmp;
+                }
+            }
+
+            Console.WriteLine($"\nОтсортированный массив:");
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write($"{array[i]} ");
+            }
         }
     }
 }
